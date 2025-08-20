@@ -21,10 +21,9 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Run Tests and Save Results
+      - name: Run Mocha Tests and Save Results
         run: |
-          # Run all tests inside the test folder and save results
-          npx jest test/server.test.js --outputFile=test-results.txt --json || true
+          npm run check > test-results.txt || true
 
       - name: Upload Test Results
         uses: actions/upload-artifact@v4
